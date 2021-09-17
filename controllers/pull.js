@@ -6,9 +6,10 @@ const atkn = settings.ATKN;
 
 /************************************************************************************************************************************************************************
  * Pull controller will serve us for receving general data, with the help of this controller we will monitor errors and characterize them if necessary. 
- * we will send the information in a general format that contains all the information about the request and the result,
- * We have methods here that are "protected" and require verification and they need the 'setting.js' file to hold the data according to the session returned from the verification from activision.com
- * login procedure,
+ * The API will return the information in a general format that contains all the information about the request and the requested result from the Call Of Duty official API.
+ * 
+ * We have methods here that are "protected" that mean they require verification and they need the 'setting.js' file to hold the data 
+ * according to session from the verification from activision.com 'login' procedure,
  * Afterwards we have the "public" methods that do not need the session values from 'setting.js',
  * And in the end of the file we have help function's to make the code cleaner and re-useable, each section is seperated.
  * 
