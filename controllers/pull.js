@@ -6,7 +6,8 @@ const atkn = settings.ATKN;
 
 /************************************************************************************************************************************************************************
  * Pull controller will serve us for receving general data, with the help of this controller we will monitor errors and characterize them if necessary. 
- * The API will return the information in a general format that contains all the information about the request and the requested result from the Call Of Duty official API.
+ * The API will return the information in a general format that contains all the information about the request and the requested result from the Call Of Duty 
+ * official API.
  * 
  * We have methods here that are "protected" that mean they require verification and they need the 'setting.js' file to hold the data 
  * according to session from the verification from activision.com 'login' procedure,
@@ -15,7 +16,8 @@ const atkn = settings.ATKN;
  * 
  * Note:
  * I do not reveal the file 'setting.js' because it contains personal information about my user,
- * The objects appear here at the beginning of the code [ACT_SSO_COOKIE, ACT_SSO_COOKIE_EXPIRY, ATKN] is what you need to extract from the session in order to use the code.
+ * The objects appear here at the beginning of the code [ACT_SSO_COOKIE, ACT_SSO_COOKIE_EXPIRY, ATKN] is what you need to extract 
+ * from the session in order to use the code.
  ************************************************************************************************************************************************************************/
 
 /* ================================================== Proteced methods [need session cookies!] ======================================================================================= */
