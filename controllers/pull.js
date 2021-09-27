@@ -1,4 +1,5 @@
 const axios = require('axios');
+const qs = require('qs');
 const settings = require('./settings');
 const ACT_SSO_COOKIE = settings.ACT_SSO_COOKIE;
 const ACT_SSO_COOKIE_EXPIRY = settings.ACT_SSO_COOKIE_EXPIRY;
@@ -126,8 +127,20 @@ const configBuilder = (platform, username, task) => {
     };
 }
 
+const buildBattleUserName = (battleName) => {
+    splitRes = battleName.split('#');
+    console.log(battleName);
+    return splitRes[0] + "%23" + splitRes[1];
+};
+
 const urlBuilder = (platform, username, task) => {
     if (task === "lastGamesData") {
+        if(platform === 'battle') {
+            let fixedUsername = buildBattleUserName(username);
+            console.log(fixedUsername);
+            console.log(`https://my.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/${platform}/gamer/${fixedUsername}/matches/wz/start/0/end/0/details`);
+            return `https://my.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/${platform}/gamer/${fixedUsername}/matches/wz/start/0/end/0/details`;
+        }
         return `https://my.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/${platform}/gamer/${username}/matches/wz/start/0/end/0/details`;
     }
     if (task === "lifetimeData") {

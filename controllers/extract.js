@@ -1,4 +1,4 @@
-let axios = require('axios');
+const axios = require('axios');
 const { errorMonitor } = require('events');
 
 /************************************************************************************************************************************************************************
@@ -40,7 +40,7 @@ exports.getLifetimeAndWeeklyStats = (req, res, next) => {
 
     axios(config)
         .then(function (response) {
-            console.log("Player Last Games Array Extract Succeeded!");
+            console.log("Player Lifetime & Weekly Stats Extract Succeeded!");
             res.status(200).json({ br_lifetime_data: response.data.data.data.lifetime.mode.br.properties, weeklyStats: response.data.data.data.weekly });
         })
         .catch(function (error) {
