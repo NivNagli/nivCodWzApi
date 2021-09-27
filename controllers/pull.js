@@ -134,17 +134,17 @@ const buildBattleUserName = (battleName) => {
 };
 
 const urlBuilder = (platform, username, task) => {
+    let fixedUsername = username;
+
+    if(platform === 'battle') {  // because battle account contain '#' we need to encoded the username.
+        fixedUsername = buildBattleUserName(username);
+    }
+
     if (task === "lastGamesData") {
-        if(platform === 'battle') {
-            let fixedUsername = buildBattleUserName(username);
-            console.log(fixedUsername);
-            console.log(`https://my.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/${platform}/gamer/${fixedUsername}/matches/wz/start/0/end/0/details`);
-            return `https://my.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/${platform}/gamer/${fixedUsername}/matches/wz/start/0/end/0/details`;
-        }
-        return `https://my.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/${platform}/gamer/${username}/matches/wz/start/0/end/0/details`;
+        return `https://my.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/${platform}/gamer/${fixedUsername}/matches/wz/start/0/end/0/details`;
     }
     if (task === "lifetimeData") {
-        return `https://my.callofduty.com/api/papi-client/stats/cod/v1/title/mw/platform/${platform}/gamer/${username}/profile/type/wz`;
+        return `https://my.callofduty.com/api/papi-client/stats/cod/v1/title/mw/platform/${platform}/gamer/${fixedUsername}/profile/type/wz`;
     }
     throw new Error("invalid argument for task in 'urlBuilder' method!");
 };
