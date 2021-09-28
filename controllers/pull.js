@@ -130,6 +130,9 @@ const configBuilder = (platform, username, task) => {
 const buildBattleUserName = (battleName) => {
     splitRes = battleName.split('#');
     console.log(battleName);
+    if(!splitRes[1]) {
+        return splitRes[0] + "%23";
+    }
     return splitRes[0] + "%23" + splitRes[1];
 };
 

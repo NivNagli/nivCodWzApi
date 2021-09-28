@@ -42,10 +42,16 @@ exports.getLifetimeAndWeeklyStats = (req, res, next) => {
         .then(function (response) {
             console.log("Player Lifetime & Weekly Stats Extract Succeeded!");
             res.status(200).json({ br_lifetime_data: response.data.data.data.lifetime.mode.br.properties, weeklyStats: response.data.data.data.weekly });
+            return;
         })
         .catch(function (error) {
             console.log("Player Lifetime & Weekly Stats Extract Failed!");
-            res.status(error.response.status).json(error);
+            if(error.response) {
+                res.status(error.response.status).json(error);
+                return;
+            }
+            res.status(500).json(error);
+            return;
         });
 };
 
