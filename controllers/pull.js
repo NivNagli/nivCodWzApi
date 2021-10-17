@@ -39,6 +39,10 @@ exports.getPlayerLastGamesData = (req, res, next) => {
             res.status(200).json({ data: response.data });
         })
         .catch((error) => {
+            if(!error) {
+                next(error);
+                return;
+            }
             if (!error.statusCode) {
                 /* unknown error! */ 
                 error.statusCode = 500;
