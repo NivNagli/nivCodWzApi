@@ -5,6 +5,8 @@ const fs = require('fs');
 /* global libraries */
 const express = require('express');
 const app = express();
+const compression = require('compression');
+const morgan = require('morgan');
 
 const pullRoutes = require("./routes/pull");
 const extractRoutes = require('./routes/extract');
