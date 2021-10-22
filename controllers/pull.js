@@ -1,9 +1,9 @@
 const axios = require('axios');
 const qs = require('qs');
-const settings = require('./settings');
-const ACT_SSO_COOKIE = settings.ACT_SSO_COOKIE;
-const ACT_SSO_COOKIE_EXPIRY = settings.ACT_SSO_COOKIE_EXPIRY;
-const atkn = settings.ATKN;
+// const settings = require('./settings');
+const ACT_SSO_COOKIE = process.env.ACT_SSO_COOKIE;
+const ACT_SSO_COOKIE_EXPIRY = process.env.ACT_SSO_COOKIE_EXPIRY;
+const atkn = process.env.ATKN;
 
 /************************************************************************************************************************************************************************
  * Pull controller will serve us for receving general data, with the help of this controller we will monitor errors and characterize them if necessary. 

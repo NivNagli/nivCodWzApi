@@ -12,7 +12,7 @@ exports.getLastGamesArrayAndSummary = (req, res, next) => {
 
     var config = {
         method: 'get',
-        url: `http://localhost:8080/pull/lastGamesData/${platform}/${username}`,
+        url: `https://warzone-squad-beta-api.herokuapp.com/pull/lastGamesData/${platform}/${username}`,
         headers: {}
     };
 
@@ -34,7 +34,7 @@ exports.getLifetimeAndWeeklyStats = (req, res, next) => {
 
     var config = {
         method: 'get',
-        url: `http://localhost:8080/pull/lifetimeData/${platform}/${username}`,
+        url: `https://warzone-squad-beta-api.herokuapp.com/pull/lifetimeData/${platform}/${username}`,
         headers: {}
     };
 
@@ -60,7 +60,7 @@ exports.getAllPlayersFromGame = (req, res, next) => {
 
     var config = {
         method: 'get',
-        url: `http://localhost:8080/pull/gameStats/${gameId}`,
+        url: `https://warzone-squad-beta-api.herokuapp.com/pull/gameStats/${gameId}`,
         headers: {}
     };
 

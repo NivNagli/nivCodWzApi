@@ -1,8 +1,22 @@
+/* local libraries */
+const path = require('path');
+const fs = require('fs');
+
+/* global libraries */
 const express = require('express');
 const app = express();
 
 const pullRoutes = require("./routes/pull");
 const extractRoutes = require('./routes/extract');
+
+/* Log tracking */
+const accessLogStream = fs.createWriteStream(
+    path.join(__dirname, 'access.log'),
+    { flags: 'a' }
+  );
+  
+  app.use(compression());
+  app.use(morgan('combined', { stream: accessLogStream }));
 
 /* CORS PERMESSION'S */
 app.use((req, res, next) => {
@@ -14,4 +28,4 @@ app.use((req, res, next) => {
 
 app.use('/pull', pullRoutes);
 app.use('/extract', extractRoutes);
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
